@@ -1,6 +1,6 @@
 <?php
 
-namespace Corcel;
+namespace Jiko\Blog;
 
 class TermTaxonomy extends Model
 {
@@ -15,7 +15,7 @@ class TermTaxonomy extends Model
      */
     public function term()
     {
-        return $this->belongsTo('Corcel\Term', 'term_id');
+        return $this->belongsTo('Jiko\Blog\Term', 'term_id');
     }
 
     /**
@@ -24,7 +24,7 @@ class TermTaxonomy extends Model
      */
     public function parentTerm()
     {
-        return $this->belongsTo('Corcel\TermTaxonomy', 'parent');
+        return $this->belongsTo('Jiko\Blog\TermTaxonomy', 'parent');
     }
 
     /**
@@ -33,7 +33,7 @@ class TermTaxonomy extends Model
      */
     public function posts()
     {
-        return $this->belongsToMany('Corcel\Post', 'term_relationships', 'term_taxonomy_id', 'object_id');
+        return $this->belongsToMany('Jiko\Blog\Post', 'term_relationships', 'term_taxonomy_id', 'object_id');
     }
 
 
@@ -55,7 +55,7 @@ class TermTaxonomy extends Model
     /**
      * Overriding newQuery() to the custom TermTaxonomyBuilder with some interesting methods
      * @param bool $excludeDeleted
-     * @return Corcel\TermTaxonomyBuilder
+     * @return Jiko\Blog\TermTaxonomyBuilder
      */
     public function newQuery($excludeDeleted = true)
     {

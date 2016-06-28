@@ -1,6 +1,6 @@
 <?php require __DIR__ . '/../../vendor/autoload.php';
 
-$capsule = \Corcel\Database::connect($params = [
+$capsule = \Jiko\Blog\Database::connect($params = [
     'database' => 'corcel',
     'username' => 'root',
     'password' => '',
@@ -15,7 +15,7 @@ $capsule->addConnection(array_merge($params, [
     'prefix' => '',
 ]), 'no_prefix');
 
-// $corcel = new \Corcel\Database\Manager();
+// $corcel = new \Jiko\Blog\Database\Manager();
 
 // $corcel->addConnection([
 //     'database' => 'corcel',

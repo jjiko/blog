@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Corcel\PostMeta
+ * Jiko\Blog\PostMeta
  *
  * @author Junior Grossi <juniorgro@gmail.com>
  */
 
-namespace Corcel;
+namespace Jiko\Blog;
 
 use Exception;
 
@@ -26,10 +26,10 @@ class PostMeta extends Model
         if ($ref) {
             $this->primaryKey = 'meta_value';
 
-            return $this->hasOne('Corcel\Post', 'ID');
+            return $this->hasOne('Jiko\Blog\Post', 'ID');
         }
 
-        return $this->belongsTo('Corcel\Post');
+        return $this->belongsTo('Jiko\Blog\Post');
     }
 
     /**
@@ -71,7 +71,7 @@ class PostMeta extends Model
         }
 
         // load relationship
-        $relation = $this->hasOne('Corcel\TermTaxonomy', 'term_taxonomy_id');
+        $relation = $this->hasOne('Jiko\Blog\TermTaxonomy', 'term_taxonomy_id');
 
         // do we need to filter which value to look for with meta_value
         // if (!is_null($where) && !empty($where)) {
@@ -84,7 +84,7 @@ class PostMeta extends Model
     /**
      * Override newCollection() to return a custom collection
      * @param array $models
-     * @return \Corcel\PostMetaCollection
+     * @return \Jiko\Blog\PostMetaCollection
      */
     public function newCollection(array $models = [])
     {

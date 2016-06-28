@@ -1,6 +1,6 @@
 <?php
 
-use Corcel\Options;
+use Jiko\Blog\Options;
 
 class OptionsTest extends PHPUnit_Framework_TestCase
 {

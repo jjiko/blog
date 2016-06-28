@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Corcel\UserMetaCollection
+ * Jiko\Blog\UserMetaCollection
  *
  * @author Mickael Burguet <www.rundef.com>
  */
 
-namespace Corcel;
+namespace Jiko\Blog;
 
 use Illuminate\Database\Eloquent\Collection;
 

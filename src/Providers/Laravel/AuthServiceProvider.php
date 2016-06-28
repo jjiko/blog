@@ -1,10 +1,10 @@
 <?php
 
-namespace Corcel\Providers\Laravel;
+namespace Jiko\Blog\Providers\Laravel;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Auth\PasswordBroker as PasswordBrokerContract;
-use Corcel\Providers\AuthUserProvider;
+use Jiko\Blog\Providers\AuthUserProvider;
 
 /**
  * @author Mickael Burguet <www.rundef.com>

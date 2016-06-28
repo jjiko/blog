@@ -1,6 +1,6 @@
 <?php
 
-namespace Corcel;
+namespace Jiko\Blog;
 
 class ThumbnailMeta extends PostMeta
 {
@@ -8,7 +8,7 @@ class ThumbnailMeta extends PostMeta
 
     public function attachment()
     {
-        return $this->belongsTo('Corcel\Attachment', 'meta_value');
+        return $this->belongsTo('Jiko\Blog\Attachment', 'meta_value');
     }
 
     public function __toString()

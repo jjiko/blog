@@ -1,5 +1,5 @@
 <?php
-namespace Corcel;
+namespace Jiko\Blog;
 
 /**
  * Menu class

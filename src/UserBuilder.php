@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Corcel\UserBuilder
+ * Jiko\Blog\UserBuilder
  *
  * @author Mickael Burguet <www.rundef.com>
  */
 
-namespace Corcel;
+namespace Jiko\Blog;
 
 use Illuminate\Database\Eloquent\Builder;
 

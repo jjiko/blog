@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Corcel\PostBuilder
+ * Jiko\Blog\PostBuilder
  *
  * @author Junior Grossi <juniorgro@gmail.com>
  */
 
-namespace Corcel;
+namespace Jiko\Blog;
 
 use Illuminate\Database\Eloquent\Builder;
 
@@ -16,7 +16,7 @@ class PostBuilder extends Builder
      * Get only posts with a custom status
      *
      * @param string $postStatus
-     * @return \Corcel\PostBuilder
+     * @return \Jiko\Blog\PostBuilder
      */
     public function status($postStatus)
     {
@@ -26,7 +26,7 @@ class PostBuilder extends Builder
     /**
      * Get only published posts
      *
-     * @return \Corcel\PostBuilder
+     * @return \Jiko\Blog\PostBuilder
      */
     public function published()
     {
@@ -37,7 +37,7 @@ class PostBuilder extends Builder
      * Get only posts from a custom post type
      *
      * @param string $type
-     * @return \Corcel\PostBuilder
+     * @return \Jiko\Blog\PostBuilder
      */
     public function type($type)
     {
@@ -48,7 +48,7 @@ class PostBuilder extends Builder
      * Get only posts from an array of custom post types
      *
      * @param array $type
-     * @return \Corcel\PostBuilder
+     * @return \Jiko\Blog\PostBuilder
      */
     public function typeIn(array $type)
     {
@@ -68,7 +68,7 @@ class PostBuilder extends Builder
      * Get only posts with a specific slug
      *
      * @param string slug
-     * @return \Corcel\PostBuilder
+     * @return \Jiko\Blog\PostBuilder
      */
     public function slug($slug)
     {

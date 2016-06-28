@@ -5,6 +5,6 @@
  *
  * @author José CI <josec89@gmail.com>
  */
-class Options extends Corcel\Options
+class Options extends Jiko\Blog\Options
 {
 }

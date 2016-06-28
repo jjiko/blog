@@ -1,7 +1,7 @@
 <?php
 
-use Corcel\Post;
-use Corcel\Page;
+use Jiko\Blog\Post;
+use Jiko\Blog\Page;
 use Thunder\Shortcode\Shortcode\ShortcodeInterface;
 
 class PostTest extends PHPUnit_Framework_TestCase
@@ -9,7 +9,7 @@ class PostTest extends PHPUnit_Framework_TestCase
     public function testPostConstructor()
     {
         $post = new Post();
-        $this->assertTrue($post instanceof \Corcel\Post);
+        $this->assertTrue($post instanceof \Jiko\Blog\Post);
     }
 
     public function testPostId()
@@ -88,7 +88,7 @@ class PostTest extends PHPUnit_Framework_TestCase
         $this->assertNotEmpty($post->meta);
         $this->assertNotEmpty($post->fields);
 
-        $this->assertTrue($post->meta instanceof \Corcel\PostMetaCollection);
+        $this->assertTrue($post->meta instanceof \Jiko\Blog\PostMetaCollection);
     }
 
     public function testPostOrderBy()
@@ -182,21 +182,21 @@ class PostTest extends PHPUnit_Framework_TestCase
 
     public function testSingleTableInheritance()
     {
-        Post::registerPostType('page', "\\Corcel\\Page");
+        Post::registerPostType('page', "\\Jiko\Blog\\Page");
 
         $page = Post::type('page')->first();
 
-        $this->assertInstanceOf("\\Corcel\\Page", $page);
+        $this->assertInstanceOf("\\Jiko\Blog\\Page", $page);
     }
 
     public function testClearRegisteredPostTypes()
     {
-        Post::registerPostType('page', "\\Corcel\\Page");
+        Post::registerPostType('page', "\\Jiko\Blog\\Page");
         Post::clearRegisteredPostTypes();
 
         $page = Post::type('page')->first();
 
-        $this->assertInstanceOf("\\Corcel\\Post", $page);
+        $this->assertInstanceOf("\\Jiko\Blog\\Post", $page);
     }
 
     public function testPostRelationConnections()

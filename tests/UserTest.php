@@ -1,13 +1,13 @@
 <?php
 
-use Corcel\User;
+use Jiko\Blog\User;
 
 class UserTest extends PHPUnit_Framework_TestCase
 {
     public function testUserConstructor()
     {
         $user = new User;
-        $this->assertTrue($user instanceof \Corcel\User);
+        $this->assertTrue($user instanceof \Jiko\Blog\User);
     }
 
     public function testUserId()
@@ -29,7 +29,7 @@ class UserTest extends PHPUnit_Framework_TestCase
         $this->assertNotEmpty($user->fields);
         $this->assertEquals($user->getAuthIdentifier(), 2);
 
-        $this->assertTrue($user->meta instanceof \Corcel\UserMetaCollection);
+        $this->assertTrue($user->meta instanceof \Jiko\Blog\UserMetaCollection);
     }
 
     public function testUpdateCustomFields()

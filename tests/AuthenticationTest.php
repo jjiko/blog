@@ -1,8 +1,8 @@
 <?php
 
-use Corcel\User;
-use Corcel\Providers\AuthUserProvider;
-use Corcel\Password\PasswordService;
+use Jiko\Blog\User;
+use Jiko\Blog\Providers\AuthUserProvider;
+use Jiko\Blog\Password\PasswordService;
 
 class AuthenticationTest extends PHPUnit_Framework_TestCase
 {

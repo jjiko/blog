@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Corcel\PostMetaCollection
+ * Jiko\Blog\PostMetaCollection
  *
  * @author Junior Grossi <juniorgro@gmail.com>
  */
 
-namespace Corcel;
+namespace Jiko\Blog;
 
 use Illuminate\Database\Eloquent\Collection;
 

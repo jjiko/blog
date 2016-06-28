@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Corcel\UserMeta
+ * Jiko\Blog\UserMeta
  *
  * @author Mickael Burguet <www.rundef.com>
  */
 
-namespace Corcel;
+namespace Jiko\Blog;
 
 class UserMeta extends Model
 {
@@ -22,14 +22,14 @@ class UserMeta extends Model
      */
     public function user()
     {
-        return $this->belongsTo('Corcel\User');
+        return $this->belongsTo('Jiko\Blog\User');
     }
 
     /**
      * Override newCollection() to return a custom collection
      *
      * @param array $models
-     * @return \Corcel\UserMetaCollection
+     * @return \Jiko\Blog\UserMetaCollection
      */
     public function newCollection(array $models = [])
     {

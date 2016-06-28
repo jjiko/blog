@@ -1,6 +1,6 @@
 <?php
 
-namespace Corcel;
+namespace Jiko\Blog;
 
 class Page extends Post
 {

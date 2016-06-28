@@ -1,6 +1,6 @@
 <?php
 
-namespace Corcel\Traits;
+namespace Jiko\Blog\Traits;
 
 /**
  * CreatedAt trait

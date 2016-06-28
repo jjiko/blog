@@ -1,13 +1,13 @@
 <?php
 
-use Corcel\Menu;
+use Jiko\Blog\Menu;
 
 class MenuTest extends PHPUnit_Framework_TestCase
 {
     public function testMenuConstructor()
     {
         $menu = new Menu;
-        $this->assertTrue($menu instanceof \Corcel\Menu);
+        $this->assertTrue($menu instanceof \Jiko\Blog\Menu);
     }
 
 

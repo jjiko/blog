@@ -1,6 +1,6 @@
 <?php
 
-namespace Corcel;
+namespace Jiko\Blog;
 
 use Exception;
 use Illuminate\Database\Eloquent\Model as Eloquent;

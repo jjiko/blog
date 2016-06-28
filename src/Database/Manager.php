@@ -1,6 +1,6 @@
 <?php
 
-namespace Corcel\Database;
+namespace Jiko\Blog\Database;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 

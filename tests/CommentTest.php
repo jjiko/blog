@@ -1,13 +1,13 @@
 <?php
 
-use Corcel\Comment;
+use Jiko\Blog\Comment;
 
 class CommentTest extends PHPUnit_Framework_TestCase
 {
     public function testCommentConstructor()
     {
         $comment = new Comment;
-        $this->assertTrue($comment instanceof \Corcel\Comment);
+        $this->assertTrue($comment instanceof \Jiko\Blog\Comment);
     }
 
     public function testCommentId()
@@ -26,7 +26,7 @@ class CommentTest extends PHPUnit_Framework_TestCase
     {
         $comment = Comment::find(1);
 
-        $this->assertTrue($comment->post()->first() instanceof \Corcel\Post);
+        $this->assertTrue($comment->post()->first() instanceof \Jiko\Blog\Post);
         $this->assertEquals($comment->post()->first()->ID, 1);
     }
 
@@ -36,7 +36,7 @@ class CommentTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(count($comments), 2);
 
         foreach ($comments as $comment) {
-            $this->assertTrue($comment instanceof \Corcel\Comment);
+            $this->assertTrue($comment instanceof \Jiko\Blog\Comment);
             $this->assertEquals($comment->comment_post_ID, 1);
         }
     }
@@ -45,7 +45,7 @@ class CommentTest extends PHPUnit_Framework_TestCase
     {
         $comment = Comment::find(2);
 
-        $this->assertTrue($comment->original()->first() instanceof \Corcel\Comment);
+        $this->assertTrue($comment->original()->first() instanceof \Jiko\Blog\Comment);
         $this->assertEquals($comment->original()->first()->comment_ID, 1);
     }
 

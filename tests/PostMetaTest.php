@@ -1,15 +1,15 @@
 <?php
 
-use Corcel\Post;
-use Corcel\Page;
-use Corcel\PostMeta;
+use Jiko\Blog\Post;
+use Jiko\Blog\Page;
+use Jiko\Blog\PostMeta;
 
 class PostMetaTest extends PHPUnit_Framework_TestCase
 {
     public function testPostMetaConstructor()
     {
         $postmeta = new PostMeta();
-        $this->assertTrue($postmeta instanceof \Corcel\PostMeta);
+        $this->assertTrue($postmeta instanceof \Jiko\Blog\PostMeta);
     }
 
     public function testPostId()
@@ -26,7 +26,7 @@ class PostMetaTest extends PHPUnit_Framework_TestCase
     public function testPostRelation()
     {
         $postmeta = PostMeta::find(1);
-        $this->assertTrue($postmeta->post instanceof \Corcel\Post);
+        $this->assertTrue($postmeta->post instanceof \Jiko\Blog\Post);
     }
 
     public function testPostMetaValue()
@@ -53,7 +53,7 @@ class PostMetaTest extends PHPUnit_Framework_TestCase
     public function testPostThumbnail()
     {
         $post = Post::find(59);
-        $this->assertTrue($post->thumbnail->attachment instanceof Corcel\Attachment);
+        $this->assertTrue($post->thumbnail->attachment instanceof Jiko\Blog\Attachment);
         $this->assertContains('hoodie_6_front.jpg', $post->image);
         $this->assertContains('/uploads/', $post->image);
     }

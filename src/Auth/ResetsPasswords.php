@@ -1,8 +1,8 @@
 <?php
 
-namespace Corcel\Auth;
+namespace Jiko\Blog\Auth;
 
-use Corcel\Password\PasswordService;
+use Jiko\Blog\Password\PasswordService;
 use Auth;
 
 trait ResetsPasswords

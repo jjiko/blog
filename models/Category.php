@@ -5,7 +5,7 @@
  *
  * @author Yoram de Langen <yoramdelangen@gmail.com>
  */
-class Category extends Corcel\TermTaxonomy
+class Category extends Jiko\Blog\TermTaxonomy
 {
     /**
      * Used to set the post's type

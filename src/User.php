@@ -6,7 +6,7 @@
  * @author Ashwin Sureshkumar<ashwin.sureshkumar@gmail.com>
  * @author Mickael Burguet <www.rundef.com>
  */
-namespace Corcel;
+namespace Jiko\Blog;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\CanResetPassword;
@@ -47,11 +47,11 @@ class User extends Model implements Authenticatable, CanResetPassword
     /**
      * Meta data relationship.
      *
-     * @return Corcel\UserMetaCollection
+     * @return Jiko\Blog\UserMetaCollection
      */
     public function meta()
     {
-        return $this->hasMany('Corcel\UserMeta', 'user_id');
+        return $this->hasMany('Jiko\Blog\UserMeta', 'user_id');
     }
 
     public function fields()
@@ -62,11 +62,11 @@ class User extends Model implements Authenticatable, CanResetPassword
     /**
      * Posts relationship.
      *
-     * @return Corcel\PostMetaCollection
+     * @return Jiko\Blog\PostMetaCollection
      */
     public function posts()
     {
-        return $this->hasMany('Corcel\Post', 'post_author');
+        return $this->hasMany('Jiko\Blog\Post', 'post_author');
     }
 
     /**
@@ -76,7 +76,7 @@ class User extends Model implements Authenticatable, CanResetPassword
      */
     public function comments()
     {
-        return $this->hasMany('Corcel\Comment', 'user_id');
+        return $this->hasMany('Jiko\Blog\Comment', 'user_id');
     }
 
     /**
@@ -84,7 +84,7 @@ class User extends Model implements Authenticatable, CanResetPassword
      *
      * @param bool $excludeDeleted
      *
-     * @return Corcel\UserBuilder
+     * @return Jiko\Blog\UserBuilder
      */
     public function newQuery()
     {

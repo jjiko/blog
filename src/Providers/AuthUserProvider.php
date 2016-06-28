@@ -1,11 +1,11 @@
 <?php
 
-namespace Corcel\Providers;
+namespace Jiko\Blog\Providers;
 
 use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Contracts\Auth\Authenticatable;
-use Corcel\Password\PasswordService;
-use Corcel\User;
+use Jiko\Blog\Password\PasswordService;
+use Jiko\Blog\User;
 
 /**
  * @author Mickael Burguet <www.rundef.com>
