@@ -23,14 +23,14 @@ class BlogServiceProvider extends ServiceProvider
    * @param  \Illuminate\Routing\Router $router
    * @return void
    */
-  public function boot(Router $router)
+  public function boot()
   {
     $this->publishes([
-      __DIR__.'/../../config/blog.php' => config_path('blog.php')
+      __DIR__ . '/../../config/blog.php' => config_path('blog.php')
     ]);
-    $this->loadViewsFrom(__DIR__.'/../resources/views', 'blog');
+    $this->loadViewsFrom(__DIR__ . '/../resources/views', 'blog');
 
-    parent::boot($router);
+    parent::boot();
   }
 
   /**
@@ -42,9 +42,7 @@ class BlogServiceProvider extends ServiceProvider
   public function map(Router $router)
   {
     $router->group(['namespace' => $this->namespace], function ($router) {
-      if (in_array(Input::server('HTTP_HOST'), ['www.joejiko.com', 'local.joejiko.com'])) {
-        require_once(__DIR__ . '/../Http/routes.php');;
-      }
+      require_once(__DIR__ . '/../Http/routes.php');;
     });
   }
 

@@ -3,7 +3,7 @@
 namespace Jiko\Blog\Providers\Laravel;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Contracts\Auth\PasswordBroker as PasswordBrokerContract;
+# use Illuminate\Contracts\Auth\PasswordBroker as PasswordBrokerContract;
 use Jiko\Blog\Providers\AuthUserProvider;
 
 /**
