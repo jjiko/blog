@@ -1,7 +1,7 @@
 {
-  "name": "jjiko/larvel-blog",
+  "name": "jjiko/blog",
   "description": "Use WordPress backend with Laravel 5",
-  "homepage": "https://github.com/jjiko/laravel-blog",
+  "homepage": "https://github.com/jjiko/blog",
   "license": "MIT",
   "authors": [
     {
