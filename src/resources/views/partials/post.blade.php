@@ -37,7 +37,7 @@
     </h2>
     <div class="post-body" itemprop="articleBody">
         @if(strlen($post->filtered_post_content()) > 1000)
-            {!! str_limit(strip_tags($post->filtered_post_content()), 1000)  !!}
+            {!! nl2br(str_limit(strip_tags($post->filtered_post_content()), 1000)) !!}
             <a class="btn btn-link" href="<?php echo route('blog_post_slug', [$post->ID, $post->post_name], false) ?>">
                 View full post
             </a>
