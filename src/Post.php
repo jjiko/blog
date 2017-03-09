@@ -7,7 +7,6 @@
  */
 namespace Jiko\Blog;
 
-use Jiko\Blog\Model;
 use Jiko\Blog\Traits\CreatedAtTrait;
 use Jiko\Blog\Traits\UpdatedAtTrait;
 use Illuminate\Support\Facades\DB;

@@ -39,8 +39,8 @@ class BlogController extends Controller
   public function category($slug = null)
   {
     if (!empty($slug)) {
-      $wp_posts = Post::taxonomy('category', $slug)->get();
-      $this->page->title = 'Blog posts categorized as '.$slug;
+      $wp_posts = Post::taxonomy('category', $slug)->where('post_type', 'post')->distinct()->limit(30)->get();
+      $this->page->title = 'Blog posts categorized as ' . $slug;
 
       return view('blog::layout')->nest('content', 'blog::index', ['wp_posts' => $wp_posts, 'response' => (object)['status' => 200]]);
     }
@@ -49,15 +49,15 @@ class BlogController extends Controller
   public function tag($slug = null)
   {
 //    $wp_posts = Post::taxonomy('post_tag', $slug)->with('taxonomies')->get();
-    $wp_posts = \Category::slug($slug)->posts()->get();
-    $this->page->title = 'Blog posts tagged with '.$slug;
+    $wp_posts = Post::taxonomy('post_tag', $slug)->get();
+    $this->page->title = 'Blog posts tagged with ' . $slug;
     return view('blog::layout')->nest('content', 'blog::index', ['wp_posts' => $wp_posts, 'response' => (object)['status' => 200]]);
   }
 
   public function show($id, $slug = null)
   {
     $wp_post = Post::find($id);
-    $this->page->title = $wp_post->category->name.": ".$wp_post->post_title;
+    $this->page->title = $wp_post->category->name . ": " . $wp_post->post_title;
     return view('blog::layout')->nest('content', 'blog::show', ['post' => $wp_post]);
   }
 }

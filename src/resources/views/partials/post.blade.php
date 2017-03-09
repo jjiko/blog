@@ -19,9 +19,17 @@
     <meta itemprop="keywords" content="">
     <header class="row post-header">
         <div class="col-sm-12 post-category">
-            / <a class="post-category-link" href="<?php echo route('blog_category', [$post->category->slug], false) ?>">
-                <?php echo $post->category->name ?>
-            </a>
+            @if($post->category)
+                / <a class="post-category-link"
+                     href="<?php echo route('blog_category', [$post->category->slug], false) ?>">
+              <?php echo $post->category->name ?>
+                </a>
+            @else
+                / <a class="post-category-link"
+                     href="<?php echo route('blog_category', ['uncategorized'], false) ?>">
+                    Uncategorized
+                </a>
+            @endif
         </div>
         <div class="col-sm-12 post-keywords">
             <meta name="keywords" content="{{ $post->tagsList }}">
@@ -32,7 +40,7 @@
     </header>
     <h2 class="post-title" itemprop="headline">
         <a href="<?php echo route('blog_post_slug', [$post->ID, $post->post_name], false) ?>">
-            <?php echo $post->post_title; ?>
+          <?php echo $post->post_title; ?>
         </a>
     </h2>
     <div class="post-body" itemprop="articleBody">
