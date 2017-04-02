@@ -1,5 +1,6 @@
 <?php namespace Jiko\Blog\Http\Controllers;
 
+use Jiko\Blog\Tag;
 use Jiko\Http\Controllers\Controller;
 use Jiko\Models\Blog\Post;
 
@@ -9,7 +10,7 @@ class BlogController extends Controller
 {
   public function index($status = 200)
   {
-    $wp_posts = Post::published()->paged(20);
+    $wp_posts = Post::published()->orderby('post_date', 'desc')->paginate(20);
     $this->page->title = config('blog.home.title');
     $this->page->description = config('blog.home.description');
     view()->share([
@@ -52,6 +53,12 @@ class BlogController extends Controller
     $wp_posts = Post::taxonomy('post_tag', $slug)->get();
     $this->page->title = 'Blog posts tagged with ' . $slug;
     return view('blog::layout')->nest('content', 'blog::index', ['wp_posts' => $wp_posts, 'response' => (object)['status' => 200]]);
+  }
+
+  public function tags()
+  {
+    $wp_tags = Tag::all();
+    dd($wp_tags);
   }
 
   public function show($id, $slug = null)

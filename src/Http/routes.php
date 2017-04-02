@@ -9,10 +9,7 @@ Route::group(['prefix' => 'blog'], function(){
 });
 
 Route::group(['prefix' => 'b'], function () {
-  Route::group(['prefix' => 'tag'], function(){
-    // @todo
-  });
-
+  Route::get('tags', 'BlogController@tags');
   Route::group(['prefix' => 'tag'], function(){
     Route::get('{t_slug}', ['as' => 'blog_tag', 'uses' => 'BlogController@tag'])
       ->where('t_slug', '.*');

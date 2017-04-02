@@ -13,9 +13,7 @@
     </section>
 </div>
 
-<div class="alert alert-info">
-    <p class="text-small">Older posts unavailable.</p>
-</div>
+{{ $wp_posts->links() }}
 
 @section('sidebars.content')
     @include('ads.google-responsive')
