@@ -4,7 +4,6 @@ namespace Jiko\Blog\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Input;
 
 class BlogServiceProvider extends ServiceProvider
 {

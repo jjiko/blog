@@ -2,11 +2,7 @@
 
 @section('styles')
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    @if(in_array(App::environment(), ['production', 'staging']))
-        <link rel="stylesheet" href="{!! asset_revision('main.css') !!}">
-    @else
-        <link rel="stylesheet" href="/css/main.css">
-    @endif
+    <link rel="stylesheet" href="{!! asset_revision('main.css') !!}">
 @stop
 
 @section('app')
@@ -49,7 +45,8 @@
             <footer id="content-footer">
                 <div style="height:40px">
                     <div style="height:40px;background-color:#d9d9d9;line-height:3;padding: 0 15px">
-                        <a href="http://jiko.us/1E9qYfi"><i class="fa fa-twitter"></i> Follow me for updates @joejiko</a>
+                        <a href="http://jiko.us/1E9qYfi"><i class="fa fa-twitter"></i> Follow me for updates @joejiko
+                        </a>
                     </div>
                 </div>
             </footer>

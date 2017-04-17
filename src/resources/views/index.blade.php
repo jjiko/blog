@@ -6,15 +6,29 @@
 <div id="primary" class="content-area">
     <section id="blog" class="site-main" role="main">
         <div class="posts">
-            <?php foreach ($wp_posts as $post): ?>
+          <?php foreach ($wp_posts as $post): ?>
             @include('blog::partials.post')
-            <?php endforeach; ?>
+          <?php endforeach; ?>
         </div>
     </section>
 </div>
 
-{{ $wp_posts->links() }}
+@if(method_exists($wp_posts, 'links'))
+    {{ $wp_posts->links() }}
+@endif
 
 @section('sidebars.content')
-    @include('ads.google-responsive')
+    @if(isset($categories))
+        <div class="container">
+            <div class="row">
+                @foreach($categories as $category)
+                    <div class="col-md-12">
+                        <a class="btn btn-sm" href="{{ route('blog_category', [$category->term->slug]) }}">
+                            {{ $category->term->name }} ({{ $category->count }})
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    @endif
 @stop

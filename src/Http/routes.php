@@ -15,8 +15,9 @@ Route::group(['prefix' => 'b'], function () {
       ->where('t_slug', '.*');
   });
 
+  Route::name('blog_categories')->get('categories', 'BlogController@categories');
   Route::group(['prefix' => 'cat'], function(){
-    Route::get('{c_slug}', ['as' => 'blog_category', 'uses' => 'BlogController@category'])
+    Route::name('blog_category')->get('{c_slug}', 'BlogController@category')
       ->where('c_slug', '.*');
   });
 

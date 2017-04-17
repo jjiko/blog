@@ -1,16 +1,23 @@
 <?php namespace Jiko\Blog\Http\Controllers;
 
-use Jiko\Blog\Tag;
+use Jiko\Blog\Category;
 use Jiko\Http\Controllers\Controller;
 use Jiko\Models\Blog\Post;
-
+use Jiko\Blog\Tag;
 use Jiko\Blog\Term;
 
 class BlogController extends Controller
 {
   public function index($status = 200)
   {
-    $wp_posts = Post::published()->orderby('post_date', 'desc')->paginate(20);
+
+    if(app()->environment('local')) {
+      $limit = 5;
+    }
+    else {
+      $limit = 15;
+    }
+    $wp_posts = Post::published()->orderby('post_date', 'desc')->paginate($limit);
     $this->page->title = config('blog.home.title');
     $this->page->description = config('blog.home.description');
     view()->share([
@@ -18,7 +25,10 @@ class BlogController extends Controller
         'status' => $status
       ]
     ]);
-    $view_data = ['wp_posts' => $wp_posts];
+    $categories = Category::with('term')->get();
+    $categories_sorted = $categories->sortByDesc('count');
+
+    $view_data = ['wp_posts' => $wp_posts, 'categories' => $categories_sorted];
     return response($this->setContent('blog::index', $view_data), $status);
   }
 
@@ -40,11 +50,17 @@ class BlogController extends Controller
   public function category($slug = null)
   {
     if (!empty($slug)) {
-      $wp_posts = Post::taxonomy('category', $slug)->where('post_type', 'post')->distinct()->limit(30)->get();
+      $wp_posts = Post::published()->taxonomy('category', $slug)->where('post_type', 'post')->orderby('post_date', 'desc')->distinct()->paginate(15);
       $this->page->title = 'Blog posts categorized as ' . $slug;
 
       return view('blog::layout')->nest('content', 'blog::index', ['wp_posts' => $wp_posts, 'response' => (object)['status' => 200]]);
     }
+  }
+
+  public function categories()
+  {
+    $wp_categories = Category::orderby('count', 'desc')->get();
+    return view('blog::layout')->nest('content', 'blog::categories', ['wp_categories' => $wp_categories]);
   }
 
   public function tag($slug = null)

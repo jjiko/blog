@@ -43,6 +43,9 @@
           <?php echo $post->post_title; ?>
         </a>
     </h2>
+    @if($user instanceof \Jiko\Auth\User && $user->hasRole('jiko'))
+        <a class="btn btn-warning" href="http://local.joejiko.com/wordpress/wp-admin/post.php?post={{ $post->ID }}&action=edit" target="_blank">Edit</a>
+    @endif
     <div class="post-body" itemprop="articleBody">
         {!! $post->filtered_post_content() !!}
     </div>

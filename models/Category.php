@@ -5,10 +5,7 @@
  *
  * @author Yoram de Langen <yoramdelangen@gmail.com>
  */
-class Category extends Jiko\Blog\TermTaxonomy
+class Category extends Jiko\Blog\Category
 {
-    /**
-     * Used to set the post's type
-     */
-    protected $taxonomy = 'category';
+
 }
