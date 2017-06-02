@@ -7,6 +7,7 @@ class TermTaxonomy extends Model
   protected $table = 'term_taxonomy';
   protected $primaryKey = 'term_taxonomy_id';
   protected $with = ['term'];
+  public $guarded = [];
   public $timestamps = false;
 
   public function __construct(array $attributes = [])
