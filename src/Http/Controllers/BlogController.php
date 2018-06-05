@@ -10,14 +10,10 @@ class BlogController extends Controller
 {
   public function index($status = 200)
   {
-
-    if(app()->environment('local')) {
-      $limit = 5;
-    }
-    else {
-      $limit = 15;
-    }
-    $wp_posts = Post::published()->orderby('post_date', 'desc')->paginate($limit);
+    $limit = 20;
+    $wp_posts = cache()->rememberForever('blog.posts.published', function () use($limit) {
+      return Post::published()->orderby('post_date', 'desc')->paginate($limit);
+    });
     $this->page->title = config('blog.home.title');
     $this->page->description = config('blog.home.description');
     view()->share([
@@ -25,10 +21,15 @@ class BlogController extends Controller
         'status' => $status
       ]
     ]);
-    $categories = Category::with('term')->get();
+    $categories = cache()->rememberForever('blog.categories', function () {
+      return Category::with('term')->get();
+    });
     $categories_sorted = $categories->sortByDesc('count');
 
-    $view_data = ['wp_posts' => $wp_posts, 'categories' => $categories_sorted];
+    $view_data = [
+      'wp_posts' => $wp_posts,
+      'categories' => $categories_sorted
+    ];
     return response($this->setContent('blog::index', $view_data), $status);
   }
 
